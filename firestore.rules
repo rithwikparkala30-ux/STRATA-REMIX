@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net default-deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_-]+$');
+    }
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidUser(data) {
+      return data.firstName is string && data.firstName.size() <= 100
+          && data.lastName is string && data.lastName.size() <= 100
+          && data.email is string && data.email.size() <= 150
+          && (data.mobile == null || (data.mobile is string && data.mobile.size() <= 30))
+          && (data.businessName == null || (data.businessName is string && data.businessName.size() <= 200))
+          && (data.industry == null || (data.industry is string && data.industry.size() <= 100))
+          && (data.companySize == null || (data.companySize is string && data.companySize.size() <= 100))
+          && (data.country == null || (data.country is string && data.country.size() <= 100))
+          && (data.currency == null || (data.currency is string && data.currency.size() <= 50))
+          && (data.goals == null || (data.goals is list && data.goals.size() <= 10));
+    }
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

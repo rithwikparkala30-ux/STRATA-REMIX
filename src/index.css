@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom global overrides and utilities for enterprise premium feeling */
+body {
+  font-family: var(--font-sans);
+  background-color: #10131A;
+  color: #EDEFF4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Hide scrollbar for neatness but keep functional scroll */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #10131A;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A3040;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B7FF5;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+@keyframes orb-glow {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(139, 127, 245, 0.4)); }
+  50% { filter: drop-shadow(0 0 30px rgba(139, 127, 245, 0.8)); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.orb-glow-purple {
+  animation: orb-glow 4s ease-in-out infinite;
+}
+
+/* ==========================================
+   DYNAMIC STRATA PALETTES (THEME SYSTEM)
+   ========================================== */
+
+/* Light Mode Overrides */
+.theme-light {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Backgrounds */
+.theme-light .bg-\[\#10131A\] {
+  background-color: #F8FAFC !important;
+}
+
+.theme-light .bg-\[\#1A1E29\] {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-light .bg-\[\#10131A\]\/40 {
+  background-color: rgba(241, 245, 249, 0.6) !important;
+}
+
+.theme-light .bg-indigo-950\/40 {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+}
+
+.theme-light .bg-slate-900\/50 {
+  background-color: rgba(241, 245, 249, 0.8) !important;
+}
+
+/* Borders */
+.theme-light .border-\[\#2A3040\] {
+  border-color: #E2E8F0 !important;
+}
+
+.theme-light .border-\[\#2A3040\/50\] {
+  border-color: rgba(226, 232, 240, 0.5) !important;
+}
+
+.theme-light .border-\[\#2A3040\/60\] {
+  border-color: rgba(226, 232, 240, 0.6) !important;
+}
+
+.theme-light .border-indigo-500\/30 {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Text Colors */
+.theme-light .text-\[\#EDEFF4\] {
+  color: #0F172A !important;
+}
+
+.theme-light .text-\[\#8B92A5\] {
+  color: #475569 !important;
+}
+
+.theme-light .text-\[\#8B7FF5\] {
+  color: #4F46E5 !important;
+}
+
+.theme-light .text-indigo-400 {
+  color: #4F46E5 !important;
+}
+
+.theme-light .text-emerald-400 {
+  color: #059669 !important;
+}
+
+.theme-light .text-indigo-300 {
+  color: #4F46E5 !important;
+}
+
+/* Hover background states */
+.theme-light .hover\:bg-\[\#1A1E29\]:hover {
+  background-color: #F1F5F9 !important;
+}
+
+.theme-light .hover\:bg-\[\#2A3040\]\/30:hover {
+  background-color: rgba(226, 232, 240, 0.4) !important;
+}
+
+.theme-light .hover\:border-\[\#8B7FF5\]:hover {
+  border-color: #4F46E5 !important;
+}
+
+.theme-light .hover\:text-\[\#EDEFF4\]:hover {
+  color: #0F172A !important;
+}
+
+/* Buttons and Selections */
+.theme-light .bg-indigo-600 {
+  background-color: #4F46E5 !important;
+}
+
+.theme-light .hover\:bg-indigo-700:hover {
+  background-color: #4338CA !important;
+}
+
+.theme-light .bg-indigo-500\/10 {
+  background-color: rgba(79, 70, 229, 0.08) !important;
+}
+
+.theme-light .selection\:bg-\[\#8B7FF5\] {
+  background-color: #C7D2FE !important;
+}
+
+.theme-light .selection\:text-white {
+  color: #1E1B4B !important;
+}
+
+/* Dark Mode (Default) */
+.theme-dark {
+  background-color: #10131A !important;
+  color: #EDEFF4 !important;
+}
+

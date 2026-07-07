@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with business and localization details.",
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "User's first name."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address."
+        },
+        "mobile": {
+          "type": "string",
+          "description": "User's mobile/phone number."
+        },
+        "businessName": {
+          "type": "string",
+          "description": "The name of the user's business."
+        },
+        "industry": {
+          "type": "string",
+          "description": "The industry sector the business operates in."
+        },
+        "companySize": {
+          "type": "string",
+          "description": "The employee size of the company."
+        },
+        "country": {
+          "type": "string",
+          "description": "Country of operation."
+        },
+        "currency": {
+          "type": "string",
+          "description": "Local base currency preferred."
+        },
+        "goals": {
+          "type": "array",
+          "description": "Selected business goals."
+        }
+      },
+      "required": ["firstName", "lastName", "email"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Collection of user profiles mapped by their Firebase Auth UIDs."
+    }
+  }
+}

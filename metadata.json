@@ -1,0 +1,8 @@
+{
+  "name": "Remix: STRATA",
+  "description": "Strategic Real-Time Analytics \u0026 Autonomous Operations Enterprise OS",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
